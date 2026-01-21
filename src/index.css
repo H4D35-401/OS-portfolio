@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+/* @theme removed for stability */
+
+:root {
+    --font-mono: "JetBrains Mono", "Fira Code", monospace;
+    --font-display: "Orbitron", sans-serif;
+
+    --color-primary: #ff0000;
+    --color-bg: #050505;
+    --color-panel: rgba(10, 10, 10, 0.7);
+    --color-text: #eeeeee;
+
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 10px;
+}
+
+::selection {
+    background: var(--color-primary);
+    color: black;
+}
+
+.arch-blue:root {
+    --color-primary: #ef4444;
+    --color-bg: #0a0a0a;
+    --color-panel: #1a1a1a;
+    --color-text: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.arch-blue {
+    color: var(--color-primary);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: var(--font-mono);
+    background: radial-gradient(circle at center, color-mix(in srgb, var(--color-primary) 15%, black) 0%, #000000 100%);
+}
+
+/* Glassmorphism Classes */
+.glass {
+    background: rgba(10, 10, 10, 0.7);
+    /* Fallback hardcoded */
+    background: var(--color-panel);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255, 0, 0, 0.15);
+}
+
+.hypr-border {
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+.hypr-shadow {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 10px;
+}
+
+/* Animations */
+@keyframes slide-up {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animate-slide-up {
+    animation: slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
